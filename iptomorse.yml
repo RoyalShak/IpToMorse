@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-to-morse-deployment
+  labels:
+    app: ip-to-morse
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ip-to-morse
+  template:
+    metadata:
+      labels:
+        app: ip-to-morse
+    spec:
+      containers:
+      - name: ip-to-morse
+        image: royalshak/iptomorsedf
+        ports:
+        - containerPort: 8081
